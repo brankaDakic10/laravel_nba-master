@@ -13,7 +13,7 @@ All news
 <ul>
 @foreach($news as $new)
 
-<li><h4><a href="">{{$new->title}}</a></h4></li>
+<li><h4><a href="{{route('single-news',['id'=>$new->id])}}">{{$new->title}}</a></h4></li>
 
 
 
