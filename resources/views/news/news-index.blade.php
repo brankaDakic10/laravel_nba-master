@@ -20,5 +20,14 @@ All news
 @endforeach
 
 </ul>
+
+ <nav class="blog-pagination">
+                                       
+   <a class="btn btn-outline-{{$news->currentPage()== 1? 'secondary disabled':'primary'}}" href="{{$news->previousPageUrl()}}">Previous</a>
+   <a class="btn btn-outline-{{$news->hasMorePages()== 1? 'primary':'secondary disabled'}}" href="{{$news->nextPageUrl()}}">Next</a>
+ </nav>
+<!-- <div>{{$news->render()}}</div> -->
+
+ 
 </div>
 @endsection
