@@ -25,6 +25,7 @@ class TeamsController extends Controller
        return view('teams.teams-show',compact('team'));
 
    }
+  
 
-
+    
 }

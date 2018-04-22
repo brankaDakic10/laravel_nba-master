@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use App\User ;
 class NewsTableSeeder extends Seeder
 {
     /**
@@ -13,7 +13,7 @@ class NewsTableSeeder extends Seeder
     {
 
         App\User::all()->each(function (App\User $user){
-            $user->news()->saveMany(factory(App\News::class,3)->make());
+            $user->news()->saveMany(factory(App\News::class,2)->make());
         });
     }
 }

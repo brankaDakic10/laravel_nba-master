@@ -16,6 +16,17 @@ class Team extends Model
 
         return $this->hasMany('App\Comment');
     }
-
+   
+    // pivot table
+    public function news()
+    {
+        return $this->belongsToMany('App\News');
+    }
+ 
+    //////
+    public function getRouteKeyName()
+    {
+        return 'name';
+    }
 
 }

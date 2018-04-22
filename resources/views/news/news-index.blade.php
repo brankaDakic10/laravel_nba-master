@@ -14,10 +14,14 @@ All news
 @foreach($news as $new)
 
 <li><h4><a href="{{route('single-news',['id'=>$new->id])}}">{{$new->title}}</a></h4></li>
-
+<i>Published by  {{$new->user->name}} </i>
 
 
 @endforeach
+
+
+
+
 
 </ul>
 
