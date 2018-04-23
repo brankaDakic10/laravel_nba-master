@@ -41,7 +41,7 @@ class RegisterController extends Controller
         // save 
         // auth()->login($user);
     
-          //   posalji user-u na njegov email //
+          //   send user-u on his email //
     Mail::to($user)->send(new VerificationUser($user));
         return redirect()->route('login');
     }

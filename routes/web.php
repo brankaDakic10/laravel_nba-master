@@ -32,10 +32,12 @@ Route::middleware('auth')->post('/teams/{team_id}/comments','CommentsController@
 
 // verification user with mail
 Route::get('/verification/{id}','LoginController@verification')->name('verification');
-
-
+//create news
+Route::get('/news/create','NewsController@create')->name('news-create');
 Route::get('/news','NewsController@index')->name('all-news');
 Route::get('/news/{id}','NewsController@show')->name('single-news');
 
-
+//team news
 Route::get('/news/team/{team}', 'NewsController@teamNews')->name('team-news');
+//save news
+Route::post('/news/store','NewsController@store')->name('news-store');

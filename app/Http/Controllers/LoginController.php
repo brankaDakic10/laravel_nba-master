@@ -15,10 +15,11 @@ class LoginController extends Controller
 
     public function create()
     {
-     return view('login.login-create');
+         return view('login.login-create');
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         if(!auth()->attempt(
             request(['email','password'])
         ))

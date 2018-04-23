@@ -23,7 +23,7 @@ class Team extends Model
         return $this->belongsToMany('App\News');
     }
  
-    //////
+    ////// team name
     public function getRouteKeyName()
     {
         return 'name';

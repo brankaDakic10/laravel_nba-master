@@ -11,7 +11,7 @@ class NewsController extends Controller
     {
 
         // $news=News::paginate(7);
-        $news=News::with('user')->paginate(5);
+        $news=News::with('user')->latest()->paginate(5);
        
         return view('news.news-index',compact('news'));
     }
@@ -24,13 +24,49 @@ class NewsController extends Controller
     }
 
   
-
     public function teamNews(Team $team)
         {
           $news= $team->news; 
          return view('news.news-teamNews', compact('news'));
        }
 
+
+     
+     public  function create(){
+   
+          $teams = Team::all();
+   
+           return view('news.news-create',compact('teams'));
+        }
+    
+        public function store(){
+
+            $teams = Team::all();
+            $this->validate(request(),[
+                'title'=>'required',
+               'content'=>'required',
+                'teams'=>'required|array'
+            ]);
+    
+            $news = new News();
+        
+            $news->title = request('title');
+            $news->content = request('content');
+            $news->user_id = auth()->user()->id;
+        
+            $news->save();
+
+            ///////
+            $news->teams()->attach(request('teams'));
+            session()->flash('message', 
+            'Thank you for publishing article on www.nba.com');
+
+            return redirect()->route('all-news');
+        }
+
+
+
+       
 
 }
 

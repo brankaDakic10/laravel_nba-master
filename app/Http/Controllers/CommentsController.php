@@ -36,7 +36,7 @@ class CommentsController extends Controller
             'user_id' => auth()->user()->id,
         ]);
 
-        //   posalji svakom igracu iz tima na njegov email //
+        //   send every player from a team on his email //
         $team->players()->each(function ($player) use ($team) {
            Mail::to($player->email)->send(new CommentReceived($team));
         });

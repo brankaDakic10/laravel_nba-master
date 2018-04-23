@@ -3,9 +3,9 @@
         <nav class="nav blog-nav">
           <a class="nav-link active" href="/">Home</a>
          
-          <a class="nav-link" href="#">Press</a>
+          <a class="nav-link" href="{{route('all-news')}}">News</a>
           
-          <a class="nav-link" href="#">About</a>
+          <a class="nav-link" href="{{route('news-create')}}">Create News</a>
 
           @if(Auth::check())
         <p class="nav-link" > User name: {{Auth()->user()->name}}</p>
@@ -24,7 +24,13 @@
     <div class="blog-header">
       <div class="container">
         <h1 class="blog-title">NBA</h1> 
-      
+        <!-- session start -->
+        @if($message=session('message'))
+        <div class="alert alert-success">
+         {{$message}}
+        </div>
+        @endif
+        <!-- - session end message -->
         <p class="lead blog-description">An example template </p>
       </div>
     </div>
